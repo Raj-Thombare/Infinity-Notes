@@ -1,0 +1,26 @@
+.new_note {
+  background-color: lightblue;
+  margin: 20px 10px;
+  font-size: 1rem;
+  padding: 1rem;
+  width: 300px;
+  min-height: 170px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.new_note textarea {
+  background-color: inherit;
+  color: black;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 5px 10px;
+  border: none;
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+}

@@ -1,9 +1,13 @@
-function App() {
+import AddNote from "./components/Note/AddNote";
+import Header from "./components/Header/Header";
+
+const App = () => {
   return (
     <div>
-      <h1>Infinity Notes</h1>
+      <Header />
+      <AddNote />
     </div>
   );
-}
+};
 
 export default App;
