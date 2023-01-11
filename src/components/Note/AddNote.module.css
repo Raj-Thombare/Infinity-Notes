@@ -1,26 +1,89 @@
-.new_note {
-  background-color: lightblue;
-  margin: 20px 10px;
-  font-size: 1rem;
-  padding: 1rem;
-  width: 300px;
-  min-height: 170px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.new-note-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.new_note textarea {
-  background-color: inherit;
-  color: black;
-  font-family: inherit;
-  font-size: inherit;
-  padding: 5px 10px;
-  border: none;
-  resize: none;
+.new-note {
+    margin: 10px 20px;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 300px;
+    min-height: 170px;
+    border-radius: 10px;
+box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
+}
+
+.new-note-header {
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.form-title {
+    min-width: 100%;
+    background-color: inherit;
+    font-size: 14px;
+    font-family: inherit;
+    padding: 0px 5px;
+    border: none;
+    line-height: 20px;
+    height: 2em;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+textarea {
+    min-width: 100%;
+    background-color: inherit;
+    font-size: 14px;
+    font-family: inherit;
+    padding: 0px 5px;
+    border: none;
+    resize: none;
+    line-height: 20px;
+    overflow: hidden;
 }
 
 textarea:focus {
   outline: none;
 }
+
+.form-title:focus-visible {
+  outline: none;
+}
+
+div[contenteditable]:empty:focus::before, div[contenteditable]:empty::before {
+content: 'Title';
+}
+
+.footer-container {
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.footer-container button  {
+  margin: 0px 5px;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  opacity: 0.71;
+  transition: opacity 0.218s ease-in
+}
+
+.footer-container button:hover  {
+  border-radius: 50%;
+  opacity: 0.87;
+    background-color: rgba(95,99,104,0.157);
+}
+
+

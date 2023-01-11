@@ -5,7 +5,9 @@ const App = () => {
   return (
     <div>
       <Header />
+      {/* sidebar */}
       <AddNote />
+      {/* notes list */}
     </div>
   );
 };
