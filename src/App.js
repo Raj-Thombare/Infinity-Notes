@@ -1,13 +1,9 @@
-import AddNote from "./components/Note/AddNote";
-import Header from "./components/Header/Header";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
     <div>
-      <Header />
-      {/* sidebar */}
-      <AddNote />
-      {/* notes list */}
+      <Home />
     </div>
   );
 };
