@@ -15,8 +15,8 @@ import {
 const NavList = ({ open }) => {
   const navList = [
     { id: 1, name: "All Notes", icon: <LightbulbOutlined /> },
-    { id: 1, name: "Archieve", icon: <ArchiveOutlined /> },
-    { id: 1, name: "Trash", icon: <DeleteOutlineOutlined /> },
+    { id: 2, name: "Archieve", icon: <ArchiveOutlined /> },
+    { id: 3, name: "Trash", icon: <DeleteOutlineOutlined /> },
   ];
 
   return (

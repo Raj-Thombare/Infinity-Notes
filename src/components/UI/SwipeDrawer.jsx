@@ -50,7 +50,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer() {
+const SwipeDrawer = () => {
   const [open, setOpen] = React.useState(false);
 
   const handleDrawer = () => {
@@ -61,10 +61,12 @@ export default function MiniDrawer() {
     <Box sx={{ display: "flex" }}>
       <Header handleDrawer={handleDrawer} open={open} />
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader></DrawerHeader>
+        <DrawerHeader> </DrawerHeader>
         <Divider />
         <NavList open={open} />
       </Drawer>
     </Box>
   );
-}
+};
+
+export default SwipeDrawer;
