@@ -12,6 +12,11 @@ const HeaderBar = styled(AppBar)`
   box-shadow: inset 0 -1px 0 0 #dadce0;
 `;
 
+const Heading = styled(Typography)`
+  color: #5f6368;
+  font-size: 24px;
+`;
+
 const Header = ({ open, handleDrawer }) => {
   return (
     <HeaderBar open={open}>
@@ -25,9 +30,9 @@ const Header = ({ open, handleDrawer }) => {
         >
           <Menu />
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
+        <Heading variant="h6" noWrap component="div">
           Infinity Notes
-        </Typography>
+        </Heading>
       </Toolbar>
     </HeaderBar>
   );

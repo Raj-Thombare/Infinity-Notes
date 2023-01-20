@@ -4,7 +4,7 @@ import { Box, Divider } from "@mui/material";
 import MuiDrawer from "@mui/material/Drawer";
 
 import Header from "../Header/Header";
-import NavList from "../Header/NavList";
+import NavList from "../Navigation/NavList";
 
 const drawerWidth = 240;
 
