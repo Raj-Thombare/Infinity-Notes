@@ -6,13 +6,23 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { Mail as MailIcon, Inbox as InboxIcon } from "@mui/icons-material";
+import {
+  LightbulbOutlined,
+  ArchiveOutlined,
+  DeleteOutlineOutlined,
+} from "@mui/icons-material";
 
 const NavList = ({ open }) => {
+  const navList = [
+    { id: 1, name: "All Notes", icon: <LightbulbOutlined /> },
+    { id: 1, name: "Archieve", icon: <ArchiveOutlined /> },
+    { id: 1, name: "Trash", icon: <DeleteOutlineOutlined /> },
+  ];
+
   return (
     <List>
-      {["All Notes", "Archieve", "Trash", "Remainder"].map((text, index) => (
-        <ListItem key={text} disablePadding sx={{ display: "block" }}>
+      {navList.map((list) => (
+        <ListItem key={list.id} disablePadding sx={{ display: "block" }}>
           <ListItemButton
             sx={{
               minHeight: 48,
@@ -27,9 +37,9 @@ const NavList = ({ open }) => {
                 justifyContent: "center",
               }}
             >
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {list.icon}
             </ListItemIcon>
-            <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+            <ListItemText primary={list.name} sx={{ opacity: open ? 1 : 0 }} />
           </ListItemButton>
         </ListItem>
       ))}

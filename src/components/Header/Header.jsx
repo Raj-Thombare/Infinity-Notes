@@ -5,8 +5,6 @@ import { Menu } from "@mui/icons-material";
 
 import Logo from "../../assets/logo.png";
 
-// const drawerWidth = 240;
-
 const HeaderBar = styled(AppBar)`
   z-index: 1201;
   background: #fff;
@@ -17,7 +15,7 @@ const HeaderBar = styled(AppBar)`
 const Heading = styled(Typography)`
   color: #5f6368;
   font-size: 24px;
-  margin-right: 20px;
+  margin-left: 20px;
 `;
 
 const Header = ({ open, handleDrawer }) => {
@@ -28,7 +26,7 @@ const Header = ({ open, handleDrawer }) => {
           onClick={handleDrawer}
           edge="start"
           sx={{
-            marginRight: 5,
+            marginRight: 2.5,
           }}
         >
           <Menu />
