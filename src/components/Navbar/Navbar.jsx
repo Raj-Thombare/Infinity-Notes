@@ -1,43 +1,26 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/icons-material/Menu";
+import { styled } from "@mui/material/styles";
+import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
+import { Menu } from "@mui/icons-material";
 
-const drawerWidth = "240px";
+// const drawerWidth = 240;
 
-const NavBar = styled(AppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
+const NavBar = styled(AppBar)`
+  z-index: 1201;
+  background: #fff;
+  height: 70px;
+  box-shadow: inset 0 -1px 0 0 #dadce0;
+`;
 
-const Navbar = ({ open, HandlerDrawer }) => {
+const Navbar = ({ open, handleDrawer }) => {
   return (
-    <AppBar open={open}>
+    <NavBar open={open}>
       <Toolbar>
         <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={HandlerDrawer}
+          onClick={handleDrawer}
           edge="start"
           sx={{
             marginRight: 5,
-            ...(open && { display: "none" }),
           }}
         >
           <Menu />
@@ -46,7 +29,7 @@ const Navbar = ({ open, HandlerDrawer }) => {
           Infinity Notes
         </Typography>
       </Toolbar>
-    </AppBar>
+    </NavBar>
   );
 };
 
