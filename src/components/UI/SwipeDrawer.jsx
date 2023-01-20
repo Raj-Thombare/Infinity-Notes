@@ -3,8 +3,8 @@ import { styled } from "@mui/material/styles";
 import { Box, Divider } from "@mui/material";
 import MuiDrawer from "@mui/material/Drawer";
 
-import Navbar from "../Navbar/Navbar";
-import NavList from "../Navbar/NavList";
+import Header from "../Header/Header";
+import NavList from "../Header/NavList";
 
 const drawerWidth = 240;
 
@@ -59,7 +59,7 @@ export default function MiniDrawer() {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <Navbar handleDrawer={handleDrawer} open={open} />
+      <Header handleDrawer={handleDrawer} open={open} />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader></DrawerHeader>
         <Divider />

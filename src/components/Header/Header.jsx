@@ -5,16 +5,16 @@ import { Menu } from "@mui/icons-material";
 
 // const drawerWidth = 240;
 
-const NavBar = styled(AppBar)`
+const HeaderBar = styled(AppBar)`
   z-index: 1201;
   background: #fff;
   height: 70px;
   box-shadow: inset 0 -1px 0 0 #dadce0;
 `;
 
-const Navbar = ({ open, handleDrawer }) => {
+const Header = ({ open, handleDrawer }) => {
   return (
-    <NavBar open={open}>
+    <HeaderBar open={open}>
       <Toolbar>
         <IconButton
           onClick={handleDrawer}
@@ -29,8 +29,8 @@ const Navbar = ({ open, handleDrawer }) => {
           Infinity Notes
         </Typography>
       </Toolbar>
-    </NavBar>
+    </HeaderBar>
   );
 };
 
-export default Navbar;
+export default Header;
