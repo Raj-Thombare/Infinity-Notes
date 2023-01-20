@@ -3,6 +3,8 @@ import { styled } from "@mui/material/styles";
 import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 
+import Logo from "../../assets/logo.png";
+
 // const drawerWidth = 240;
 
 const HeaderBar = styled(AppBar)`
@@ -15,6 +17,7 @@ const HeaderBar = styled(AppBar)`
 const Heading = styled(Typography)`
   color: #5f6368;
   font-size: 24px;
+  margin-right: 20px;
 `;
 
 const Header = ({ open, handleDrawer }) => {
@@ -30,6 +33,7 @@ const Header = ({ open, handleDrawer }) => {
         >
           <Menu />
         </IconButton>
+        <img src={Logo} alt="logo" style={{ width: 30 }} />
         <Heading variant="h6" noWrap component="div">
           Infinity Notes
         </Heading>
