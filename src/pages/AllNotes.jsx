@@ -12,17 +12,17 @@ const dummyNotes = [
   {
     id: 1,
     title: "Note 1",
-    text: "This is my first note!",
+    text: "This is my first note! This is my first note! This is my third note!",
   },
   {
     id: 2,
     title: "Note 2",
-    text: "This is my second note!",
+    text: "This is my second note! This is my second note! This is my second note! This is my second note! This is my second note! This is my second note!",
   },
   {
     id: 3,
     title: "Note 3",
-    text: "This is my third note!",
+    text: "This is my third note! This is my third note! This is my third note! This is my third note!",
   },
 ];
 
