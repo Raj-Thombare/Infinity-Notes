@@ -6,10 +6,11 @@ import MuiDrawer from "@mui/material/Drawer";
 import Header from "../Header/Header";
 import NavList from "../Navigation/NavList";
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
+  borderRight: "none",
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
@@ -23,6 +24,7 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: "hidden",
+  borderRight: "none",
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
@@ -51,7 +53,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const SwipeDrawer = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const handleDrawer = () => {
     setOpen((prevState) => !prevState);

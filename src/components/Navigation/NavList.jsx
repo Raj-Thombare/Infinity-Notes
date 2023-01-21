@@ -15,20 +15,31 @@ import {
 
 const NavList = ({ open }) => {
   const navList = [
-    { id: 1, name: "All Notes", icon: <LightbulbOutlined />, route: "/" },
+    { id: 1, name: "Notes", icon: <LightbulbOutlined />, route: "/" },
     { id: 2, name: "Archieve", icon: <ArchiveOutlined />, route: "/archive" },
     { id: 3, name: "Trash", icon: <DeleteOutlineOutlined />, route: "/trash" },
   ];
 
   return (
-    <List>
+    <List style={{ marginTop: "5px", color: "#202124" }}>
       {navList.map((list) => (
-        <ListItem key={list.id} disablePadding sx={{ display: "block" }}>
+        <ListItem
+          key={list.id}
+          disablePadding
+          sx={{
+            display: "block",
+          }}
+        >
           <ListItemButton
             sx={{
               minHeight: 48,
               justifyContent: open ? "initial" : "center",
               px: 2.5,
+              borderRadius: "0px 25px 25px 0px",
+              "& active": {
+                backgroundColor: "#4fbaf5",
+              },
+              // backgroundColor: list.name ? "#4fbaf5" : "rgb(245 245 245)",
             }}
           >
             <ListItemIcon
@@ -38,9 +49,19 @@ const NavList = ({ open }) => {
                 justifyContent: "center",
               }}
             >
-              <Link to={list.route}>{list.icon}</Link>
+              <Link to={list.route} style={{ color: "#202124" }}>
+                {list.icon}
+              </Link>
             </ListItemIcon>
-            <ListItemText primary={list.name} sx={{ opacity: open ? 1 : 0 }} />
+            <ListItemText
+              primary={list.name}
+              primaryTypographyProps={{ fontSize: "15px", fontWeight: 500 }}
+              sx={{
+                opacity: open ? 1 : 0,
+                color: "#202124",
+                marginLeft: "5px",
+              }}
+            />
           </ListItemButton>
         </ListItem>
       ))}
