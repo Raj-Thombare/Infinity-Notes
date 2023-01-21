@@ -5,21 +5,35 @@ import {
   Button,
   Typography,
 } from "@mui/material";
+import { ArchiveOutlined, DeleteOutlineOutlined } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 
-const Note = () => {
+const StyledCard = styled(Card)`
+  width: 240px;
+  margin: 8px;
+  box-shadow: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+`;
+
+const Note = ({ note }) => {
   return (
-    <Card sx={{ minWidth: 275, marginLeft: 20, marginTop: 5 }}>
+    <StyledCard>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Title
+          {note.title}
         </Typography>
-        <Typography variant="body2">Card Body</Typography>
+        <Typography variant="body2">{note.text}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button size="small">
+          <ArchiveOutlined />
+        </Button>
+        <Button size="small">
+          <DeleteOutlineOutlined />
+        </Button>
       </CardActions>
-    </Card>
+    </StyledCard>
   );
 };
 

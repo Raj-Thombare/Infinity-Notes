@@ -1,8 +1,8 @@
 import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
+import { Box } from "@mui/material";
 import NotesForm from "../components/Notes/NotesForm";
 import SwipeDrawer from "../components/UI/SwipeDrawer";
-import Note from "../components/Notes/Note";
+import NotesList from "../components/Notes/NotesList";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
@@ -33,7 +33,7 @@ const Home = () => {
         <DrawerHeader />
         <SwipeDrawer />
         <NotesForm />
-        <Note />
+        <NotesList notes={dummyNotes} />
       </Box>
     </Box>
   );
