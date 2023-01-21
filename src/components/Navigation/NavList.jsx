@@ -30,39 +30,42 @@ const NavList = ({ open }) => {
             display: "block",
           }}
         >
-          <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5,
-              borderRadius: "0px 25px 25px 0px",
-              "& active": {
-                backgroundColor: "#4fbaf5",
-              },
-              // backgroundColor: list.name ? "#4fbaf5" : "rgb(245 245 245)",
-            }}
+          <Link
+            to={list.route}
+            style={{ color: "#202124", textDecoration: "none" }}
           >
-            <ListItemIcon
+            <ListItemButton
               sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center",
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
+                borderRadius: "0px 25px 25px 0px",
+                "& active": {
+                  backgroundColor: "#4fbaf5",
+                },
+                // backgroundColor: list.name ? "#4fbaf5" : "rgb(245 245 245)",
               }}
             >
-              <Link to={list.route} style={{ color: "#202124" }}>
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                }}
+              >
                 {list.icon}
-              </Link>
-            </ListItemIcon>
-            <ListItemText
-              primary={list.name}
-              primaryTypographyProps={{ fontSize: "15px", fontWeight: 500 }}
-              sx={{
-                opacity: open ? 1 : 0,
-                color: "#202124",
-                marginLeft: "5px",
-              }}
-            />
-          </ListItemButton>
+              </ListItemIcon>
+              <ListItemText
+                primary={list.name}
+                primaryTypographyProps={{ fontSize: "15px", fontWeight: 500 }}
+                sx={{
+                  opacity: open ? 1 : 0,
+                  color: "#202124",
+                  marginLeft: "5px",
+                }}
+              />
+            </ListItemButton>
+          </Link>
         </ListItem>
       ))}
     </List>
