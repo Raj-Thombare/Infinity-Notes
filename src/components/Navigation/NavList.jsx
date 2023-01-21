@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 import {
   List,
   ListItem,
@@ -14,9 +15,9 @@ import {
 
 const NavList = ({ open }) => {
   const navList = [
-    { id: 1, name: "All Notes", icon: <LightbulbOutlined /> },
-    { id: 2, name: "Archieve", icon: <ArchiveOutlined /> },
-    { id: 3, name: "Trash", icon: <DeleteOutlineOutlined /> },
+    { id: 1, name: "All Notes", icon: <LightbulbOutlined />, route: "/" },
+    { id: 2, name: "Archieve", icon: <ArchiveOutlined />, route: "/archive" },
+    { id: 3, name: "Trash", icon: <DeleteOutlineOutlined />, route: "/trash" },
   ];
 
   return (
@@ -37,7 +38,7 @@ const NavList = ({ open }) => {
                 justifyContent: "center",
               }}
             >
-              {list.icon}
+              <Link to={list.route}>{list.icon}</Link>
             </ListItemIcon>
             <ListItemText primary={list.name} sx={{ opacity: open ? 1 : 0 }} />
           </ListItemButton>

@@ -31,6 +31,10 @@ const NotesForm = () => {
     containerRef.current.style.minHeight = "30px";
   };
 
+  const changeHandler = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <Container>
@@ -60,6 +64,7 @@ const NotesForm = () => {
             paddingBottom: 0,
           }}
           onClick={handleTextAreaClick}
+          onChange={changeHandler}
         />
       </Container>
     </ClickAwayListener>

@@ -15,7 +15,8 @@ const HeaderBar = styled(AppBar)`
 const Heading = styled(Typography)`
   color: #5f6368;
   font-size: 24px;
-  margin-left: 20px;
+  margin-left: 10px;
+  font-weight: 300;
 `;
 
 const Header = ({ open, handleDrawer }) => {
@@ -25,15 +26,13 @@ const Header = ({ open, handleDrawer }) => {
         <IconButton
           onClick={handleDrawer}
           edge="start"
-          sx={{
-            marginRight: 2.5,
-          }}
+          sx={{ marginRight: 2.5 }}
         >
           <Menu />
         </IconButton>
-        <img src={Logo} alt="logo" style={{ width: 30 }} />
+        <img src={Logo} alt="logo" style={{ width: 60 }} />
         <Heading variant="h6" noWrap component="div">
-          Infinity Notes
+          Infinity
         </Heading>
       </Toolbar>
     </HeaderBar>
