@@ -31,9 +31,15 @@ const Home = () => {
   return (
     <Box sx={{ display: "flex", width: "100%" }}>
       <Box sx={{ p: 3, width: "100%" }}>
-        <Box sx={{ marginLeft: "260px" }}>
-          <DrawerHeader />
-          <SwipeDrawer />
+        <DrawerHeader />
+        <SwipeDrawer />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <NotesForm />
           {dummyNotes.length > 0 ? (
             <NotesList notes={dummyNotes} />
