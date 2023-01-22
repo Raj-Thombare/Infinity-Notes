@@ -12,11 +12,9 @@ const Archive = () => {
   return (
     <Box sx={{ display: "flex", width: "100%" }}>
       <Box sx={{ p: 3, width: "100%" }}>
-        <Box sx={{ marginLeft: "260px" }}>
-          <DrawerHeader />
-          <SwipeDrawer />
-          {false ? <NotesList /> : <EmptyNotes />}
-        </Box>
+        <DrawerHeader />
+        <SwipeDrawer />
+        {false ? <NotesList /> : <EmptyNotes />}
       </Box>
     </Box>
   );
