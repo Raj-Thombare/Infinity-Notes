@@ -12,7 +12,7 @@ const Container = styled(Box)`
   padding: 10px 15px;
   border-radius: 8px;
   border: 1px solid #e0e0e0;
-  margin: auto;
+  // margin-left: 260px;
   min-height: 30px;
 `;
 

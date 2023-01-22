@@ -31,14 +31,16 @@ const Home = () => {
   return (
     <Box sx={{ display: "flex", width: "100%" }}>
       <Box sx={{ p: 3, width: "100%" }}>
-        <DrawerHeader />
-        <SwipeDrawer />
-        <NotesForm />
-        {dummyNotes.length > 0 ? (
-          <NotesList notes={dummyNotes} />
-        ) : (
-          <EmptyNotes />
-        )}
+        <Box sx={{ marginLeft: "260px" }}>
+          <DrawerHeader />
+          <SwipeDrawer />
+          <NotesForm />
+          {dummyNotes.length > 0 ? (
+            <NotesList notes={dummyNotes} />
+          ) : (
+            <EmptyNotes />
+          )}
+        </Box>
       </Box>
     </Box>
   );

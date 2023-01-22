@@ -6,7 +6,7 @@ import MuiDrawer from "@mui/material/Drawer";
 import Header from "../Header/Header";
 import NavList from "../Navigation/NavList";
 
-const drawerWidth = 280;
+const drawerWidth = 260;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,

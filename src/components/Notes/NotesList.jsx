@@ -1,4 +1,5 @@
 import Note from "./Note";
+import { Grid } from "@mui/material";
 
 const NotesList = ({ notes }) => {
   return (
@@ -8,11 +9,18 @@ const NotesList = ({ notes }) => {
         flexDirection: "row",
         justifyContent: "center",
         marginTop: "20px",
+        // marginLeft: "260px",
       }}
     >
-      {notes.map((note) => {
-        return <Note key={note.id} note={note} />;
-      })}
+      <Grid container>
+        {notes.map((note) => {
+          return (
+            <Grid item>
+              <Note key={note.id} note={note} />
+            </Grid>
+          );
+        })}
+      </Grid>
     </div>
   );
 };

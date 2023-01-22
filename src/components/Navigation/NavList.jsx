@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   List,
   ListItem,
@@ -19,6 +19,8 @@ const NavList = ({ open }) => {
     { id: 2, name: "Archieve", icon: <ArchiveOutlined />, route: "/archive" },
     { id: 3, name: "Trash", icon: <DeleteOutlineOutlined />, route: "/trash" },
   ];
+
+  const { pathname } = useLocation();
 
   return (
     <List style={{ marginTop: "5px", color: "#202124" }}>
@@ -40,10 +42,10 @@ const NavList = ({ open }) => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
                 borderRadius: "0px 25px 25px 0px",
-                "& active": {
-                  backgroundColor: "#4fbaf5",
+                backgroundColor: pathname === list.route && "#4fbaf5",
+                "&:hover": {
+                  backgroundColor: pathname === list.route && "#4fbaf5",
                 },
-                // backgroundColor: list.name ? "#4fbaf5" : "rgb(245 245 245)",
               }}
             >
               <ListItemIcon
@@ -61,7 +63,6 @@ const NavList = ({ open }) => {
                 sx={{
                   opacity: open ? 1 : 0,
                   color: "#202124",
-                  marginLeft: "5px",
                 }}
               />
             </ListItemButton>
