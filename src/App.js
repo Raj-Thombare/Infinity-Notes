@@ -6,6 +6,7 @@ import Archive from "./pages/Archive";
 import Trash from "./pages/Trash";
 import NotFound from "./pages/NotFound";
 import SwipeDrawer from "./components/UI/SwipeDrawer";
+import { DataContextProvider } from "./context/data-context";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
@@ -13,7 +14,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 const App = () => {
   return (
-    <>
+    <DataContextProvider>
       <SwipeDrawer />
       <DrawerHeader />
       <Routes>
@@ -22,7 +23,7 @@ const App = () => {
         <Route path="/trash" element={<Trash />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </>
+    </DataContextProvider>
   );
 };
 

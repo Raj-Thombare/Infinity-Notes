@@ -1,27 +1,12 @@
+import { useContext } from "react";
 import { Box } from "@mui/material";
 import NotesForm from "../components/Notes/NotesForm";
 import NotesList from "../components/Notes/NotesList";
 import EmptyNotes from "../components/UI/EmptyNotes";
-
-const dummyNotes = [
-  {
-    id: 1,
-    title: "Note 1",
-    text: "This is my first note! This is my first note! This is my third note!",
-  },
-  {
-    id: 2,
-    title: "Note 2",
-    text: "This is my second note! This is my second note! This is my second note! This is my second note! This is my second note! This is my second note!",
-  },
-  {
-    id: 3,
-    title: "Note 3",
-    text: "This is my third note! This is my third note! This is my third note! This is my third note!",
-  },
-];
+import DataContext from "../context/data-context";
 
 const Home = () => {
+  const { notes } = useContext(DataContext);
   return (
     <Box sx={{ display: "flex", width: "100%" }}>
       <Box sx={{ p: 3, width: "100%" }}>
@@ -33,11 +18,7 @@ const Home = () => {
           }}
         >
           <NotesForm />
-          {dummyNotes.length > 0 ? (
-            <NotesList notes={dummyNotes} />
-          ) : (
-            <EmptyNotes />
-          )}
+          {notes.length > 0 ? <NotesList notes={notes} /> : <EmptyNotes />}
         </Box>
       </Box>
     </Box>
