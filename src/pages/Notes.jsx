@@ -6,7 +6,7 @@ import EmptyNotes from "../components/UI/EmptyNotes";
 import DataContext from "../context/data-context";
 
 const Home = () => {
-  const { notes } = useContext(DataContext);
+  const { allNotes } = useContext(DataContext);
   return (
     <Box sx={{ display: "flex", width: "100%" }}>
       <Box sx={{ p: 3, width: "100%" }}>
@@ -18,7 +18,11 @@ const Home = () => {
           }}
         >
           <NotesForm />
-          {notes.length > 0 ? <NotesList notes={notes} /> : <EmptyNotes />}
+          {allNotes.length > 0 ? (
+            <NotesList notes={allNotes} />
+          ) : (
+            <EmptyNotes />
+          )}
         </Box>
       </Box>
     </Box>

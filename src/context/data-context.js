@@ -19,17 +19,24 @@ const dummyNotes = [
 ];
 
 const DataContext = createContext({
-  notes: [],
+  allNotes: [],
   archives: [],
   trash: [],
+  archiveNote: () => {},
 });
 
 export const DataContextProvider = ({ children }) => {
+  const archiveNotesHandler = () => {
+    console.log("archived!");
+  };
+
   const NotesData = {
-    notes: dummyNotes,
+    allNotes: dummyNotes,
     archives: [],
     trash: [],
+    archiveNote: archiveNotesHandler,
   };
+
   return (
     <DataContext.Provider value={NotesData}>{children}</DataContext.Provider>
   );

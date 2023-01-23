@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import DataContext from "../../context/data-context";
 import {
   Card,
   CardActions,
@@ -21,6 +23,7 @@ const StyledCard = styled(Card)`
 `;
 
 const Note = ({ note }) => {
+  const { archiveNote } = useContext(DataContext);
   return (
     <StyledCard>
       <CardContent>
@@ -30,7 +33,7 @@ const Note = ({ note }) => {
         <Typography variant="body2">{note.text}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">
+        <Button size="small" onClick={archiveNote}>
           <ArchiveOutlined />
         </Button>
         <Button size="small">
