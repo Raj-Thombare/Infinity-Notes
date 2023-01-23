@@ -23,11 +23,15 @@ const DataContext = createContext({
   archives: [],
   trash: [],
   archiveNote: () => {},
+  trashNote: () => {},
 });
 
 export const DataContextProvider = ({ children }) => {
   const archiveNotesHandler = () => {
     console.log("archived!");
+  };
+  const trashNoteHandler = () => {
+    console.log("trashed!");
   };
 
   const NotesData = {
@@ -35,6 +39,7 @@ export const DataContextProvider = ({ children }) => {
     archives: [],
     trash: [],
     archiveNote: archiveNotesHandler,
+    trashNote: trashNoteHandler,
   };
 
   return (

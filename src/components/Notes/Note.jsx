@@ -23,7 +23,7 @@ const StyledCard = styled(Card)`
 `;
 
 const Note = ({ note }) => {
-  const { archiveNote } = useContext(DataContext);
+  const { archiveNote, trashNote } = useContext(DataContext);
   return (
     <StyledCard>
       <CardContent>
@@ -36,7 +36,7 @@ const Note = ({ note }) => {
         <Button size="small" onClick={archiveNote}>
           <ArchiveOutlined />
         </Button>
-        <Button size="small">
+        <Button size="small" onClick={trashNote}>
           <DeleteOutlineOutlined />
         </Button>
       </CardActions>
