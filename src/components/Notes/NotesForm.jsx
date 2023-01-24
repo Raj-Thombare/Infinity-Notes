@@ -53,37 +53,41 @@ const NotesForm = () => {
     console.log(e.target.value);
   };
 
+  const formSubmitHandler = () => {};
+
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <Container>
-        {showTextField && (
+        <form onSubmit={formSubmitHandler}>
+          {showTextField && (
+            <TextField
+              placeholder="Title"
+              variant="standard"
+              InputProps={{
+                disableUnderline: true,
+              }}
+              style={{
+                marginBottom: 10,
+              }}
+            />
+          )}
           <TextField
-            placeholder="Title"
+            placeholder="Take a note..."
             variant="standard"
+            multiline
+            ref={containerRef}
+            maxRows={Infinity}
             InputProps={{
               disableUnderline: true,
             }}
             style={{
-              marginBottom: 10,
+              marginBottom: 0,
+              paddingBottom: 0,
             }}
+            onClick={handleTextAreaClick}
+            onChange={changeHandler}
           />
-        )}
-        <TextField
-          placeholder="Take a note..."
-          variant="standard"
-          multiline
-          ref={containerRef}
-          maxRows={Infinity}
-          InputProps={{
-            disableUnderline: true,
-          }}
-          style={{
-            marginBottom: 0,
-            paddingBottom: 0,
-          }}
-          onClick={handleTextAreaClick}
-          onChange={changeHandler}
-        />
+        </form>
       </Container>
     </ClickAwayListener>
   );
