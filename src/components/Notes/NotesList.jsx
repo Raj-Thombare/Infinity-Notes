@@ -9,14 +9,13 @@ const NotesList = ({ notes }) => {
         flexDirection: "row",
         justifyContent: "center",
         marginTop: "20px",
-        // marginLeft: "260px",
       }}
     >
       <Grid container>
         {notes.map((note) => {
           return (
-            <Grid item>
-              <Note key={note.id} note={note} />
+            <Grid item key={note.id}>
+              <Note note={note} />
             </Grid>
           );
         })}

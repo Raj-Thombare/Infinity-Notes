@@ -27,9 +27,10 @@ const DataContext = createContext({
 });
 
 export const DataContextProvider = ({ children }) => {
-  const archiveNotesHandler = () => {
-    console.log("archived!");
+  const archiveNotesHandler = (id) => {
+    console.log("archived!: ", id);
   };
+
   const trashNoteHandler = () => {
     console.log("trashed!");
   };
@@ -41,6 +42,8 @@ export const DataContextProvider = ({ children }) => {
     archiveNote: archiveNotesHandler,
     trashNote: trashNoteHandler,
   };
+
+  
 
   return (
     <DataContext.Provider value={NotesData}>{children}</DataContext.Provider>

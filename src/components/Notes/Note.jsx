@@ -33,7 +33,7 @@ const Note = ({ note }) => {
         <Typography variant="body2">{note.text}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={archiveNote}>
+        <Button size="small" onClick={() => archiveNote(note.id)}>
           <ArchiveOutlined />
         </Button>
         <Button size="small" onClick={trashNote}>
