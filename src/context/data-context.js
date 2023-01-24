@@ -1,22 +1,5 @@
-import React, { createContext } from "react";
-
-const dummyNotes = [
-  {
-    id: 1,
-    title: "Note 1",
-    text: "This is my first note! This is my first note! This is my third note!",
-  },
-  {
-    id: 2,
-    title: "Note 2",
-    text: "This is my second note! This is my second note! This is my second note! This is my second note! This is my second note! This is my second note!",
-  },
-  {
-    id: 3,
-    title: "Note 3",
-    text: "This is my third note! This is my third note! This is my third note! This is my third note!",
-  },
-];
+import React, { createContext, useReducer } from "react";
+import NotesReducer from "../reducer/note-reducer";
 
 const DataContext = createContext({
   allNotes: [],
@@ -27,26 +10,12 @@ const DataContext = createContext({
 });
 
 export const DataContextProvider = ({ children }) => {
-  const archiveNotesHandler = (id) => {
-    console.log("archived!: ", id);
-  };
-
-  const trashNoteHandler = () => {
-    console.log("trashed!");
-  };
-
-  const NotesData = {
-    allNotes: dummyNotes,
-    archives: [],
-    trash: [],
-    archiveNote: archiveNotesHandler,
-    trashNote: trashNoteHandler,
-  };
-
-  
+  const [state, dispatch] = useReducer(NotesReducer, DataContext);
 
   return (
-    <DataContext.Provider value={NotesData}>{children}</DataContext.Provider>
+    <DataContext.Provider value={{ ...state, dispatch }}>
+      {children}
+    </DataContext.Provider>
   );
 };
 
