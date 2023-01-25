@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   Card,
   CardActions,
@@ -7,6 +8,7 @@ import {
 } from "@mui/material";
 import { ArchiveOutlined, DeleteOutlineOutlined } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
+import DataContext from "../../context/data-context";
 
 const StyledCard = styled(Card)`
   width: 240px;
@@ -21,6 +23,7 @@ const StyledCard = styled(Card)`
 `;
 
 const Note = ({ note }) => {
+  const { addToArchive } = useContext(DataContext);
   return (
     <StyledCard>
       <CardContent>
@@ -34,7 +37,7 @@ const Note = ({ note }) => {
         <Typography variant="body2">{note.text}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">
+        <Button size="small" onClick={() => addToArchive(note)}>
           <ArchiveOutlined />
         </Button>
         <Button size="small">
