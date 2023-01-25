@@ -2,16 +2,24 @@ import { useContext } from "react";
 import { Box } from "@mui/material";
 import DataContext from "../context/data-context";
 import NotesList from "../components/Notes/NotesList";
-import EmptyNotes from "../components/UI/EmptyNotes";
+import EmptyArchives from "../components/UI/EmptyArchives";
+
+let archivedNotes;
 
 const Archive = () => {
   const { archives } = useContext(DataContext);
-  console.log(archives);
+
+  if (archives?.length > 0) {
+    archivedNotes = <NotesList notes={archives} />;
+  }
+
+  if (archives?.length === 0) {
+    archivedNotes = <EmptyArchives />;
+  }
+
   return (
     <Box style={{ marginLeft: "260px", padding: "24px" }}>
-      <Box>
-        {archives?.length > 0 ? <NotesList notes={archives} /> : <EmptyNotes />}
-      </Box>
+      <Box>{archivedNotes}</Box>
     </Box>
   );
 };
