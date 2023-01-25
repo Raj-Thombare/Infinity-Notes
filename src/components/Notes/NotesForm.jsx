@@ -1,8 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import { ClickAwayListener } from "@mui/material";
+import { v4 as uuid } from "uuid";
+import DataContext from "../../context/data-context";
 
 const Container = styled(Box)`
   display: flex;
@@ -16,28 +18,19 @@ const Container = styled(Box)`
   min-height: 30px;
 `;
 
-const dummyNotes = [
-  {
-    id: 1,
-    title: "Note 1",
-    text: "This is my first note! This is my first note! This is my third note!",
-  },
-  {
-    id: 2,
-    title: "Note 2",
-    text: "This is my second note! This is my second note! This is my second note! This is my second note! This is my second note! This is my second note!",
-  },
-  {
-    id: 3,
-    title: "Note 3",
-    text: "This is my third note! This is my third note! This is my third note! This is my third note!",
-  },
-];
+const note = {
+  id: "",
+  title: "",
+  text: "",
+};
 
 const NotesForm = () => {
   const [showTextField, setShowTextField] = useState(false);
+  const [addNote, setAddNote] = useState(note);
 
   const containerRef = useRef();
+
+  const { addToNotes } = useContext(DataContext);
 
   const handleTextAreaClick = () => {
     setShowTextField(true);
@@ -47,47 +40,56 @@ const NotesForm = () => {
   const handleClickAway = () => {
     setShowTextField(false);
     containerRef.current.style.minHeight = "30px";
+    if (addNote.title || addNote.text) {
+      addToNotes(addNote);
+    }
+    setAddNote({
+      title: "",
+      text: "",
+    });
   };
 
-  const changeHandler = (e) => {
-    console.log(e.target.value);
+  const userInputHandler = (e) => {
+    let newNote = { ...addNote, id: uuid(), [e.target.name]: e.target.value };
+    setAddNote(newNote);
   };
-
-  const formSubmitHandler = () => {};
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <Container>
-        <form onSubmit={formSubmitHandler}>
-          {showTextField && (
-            <TextField
-              placeholder="Title"
-              variant="standard"
-              InputProps={{
-                disableUnderline: true,
-              }}
-              style={{
-                marginBottom: 10,
-              }}
-            />
-          )}
+        {showTextField && (
           <TextField
-            placeholder="Take a note..."
+            placeholder="Title"
+            name="title"
+            value={addNote.title}
             variant="standard"
-            multiline
-            ref={containerRef}
-            maxRows={Infinity}
+            onChange={userInputHandler}
             InputProps={{
               disableUnderline: true,
             }}
             style={{
-              marginBottom: 0,
-              paddingBottom: 0,
+              marginBottom: 10,
             }}
-            onClick={handleTextAreaClick}
-            onChange={changeHandler}
           />
-        </form>
+        )}
+        <TextField
+          placeholder="Take a note..."
+          variant="standard"
+          name="text"
+          value={addNote.text}
+          multiline
+          ref={containerRef}
+          maxRows={Infinity}
+          InputProps={{
+            disableUnderline: true,
+          }}
+          style={{
+            marginBottom: 0,
+            paddingBottom: 0,
+          }}
+          onClick={handleTextAreaClick}
+          onChange={userInputHandler}
+        />
       </Container>
     </ClickAwayListener>
   );

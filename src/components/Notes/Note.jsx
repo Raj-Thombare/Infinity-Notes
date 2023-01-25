@@ -24,7 +24,11 @@ const Note = ({ note }) => {
   return (
     <StyledCard>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        <Typography
+          sx={{ fontSize: 14, fontWeight: "bold" }}
+          color="text.secondary"
+          gutterBottom
+        >
           {note.title}
         </Typography>
         <Typography variant="body2">{note.text}</Typography>
