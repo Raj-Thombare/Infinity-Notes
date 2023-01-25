@@ -10,6 +10,8 @@ import {
   ArchiveOutlined,
   DeleteOutlineOutlined,
   UnarchiveOutlined,
+  DeleteForeverOutlined,
+  RestoreFromTrashOutlined,
 } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import DataContext from "../../context/data-context";
@@ -27,8 +29,7 @@ const StyledCard = styled(Card)`
 `;
 
 const Note = ({ note, path }) => {
-  const { addToArchive, addToTrash, removeFromArchive } =
-    useContext(DataContext);
+  const { addToArchive, addToTrash, unarchiveNote } = useContext(DataContext);
   return (
     <StyledCard>
       <CardContent>
@@ -41,22 +42,39 @@ const Note = ({ note, path }) => {
         </Typography>
         <Typography variant="body2">{note.text}</Typography>
       </CardContent>
-      <CardActions>
-        {path === "/archive" ? (
-          <Button size="small" onClick={() => removeFromArchive(note)}>
-            <UnarchiveOutlined />
-          </Button>
-        ) : (
+      {path === "/" && (
+        <CardActions>
           <Button size="small" onClick={() => addToArchive(note)}>
             <ArchiveOutlined />
           </Button>
-        )}
-        <Button size="small" onClick={() => addToTrash(note)}>
-          <DeleteOutlineOutlined />
-        </Button>
-      </CardActions>
+          <Button size="small" onClick={() => addToTrash(note)}>
+            <DeleteOutlineOutlined />
+          </Button>
+        </CardActions>
+      )}
+      {path === "/archive" && (
+        <CardActions>
+          <Button size="small" onClick={() => unarchiveNote(note)}>
+            <UnarchiveOutlined />
+          </Button>
+          <Button size="small" onClick={() => addToTrash(note)}>
+            <DeleteOutlineOutlined />
+          </Button>
+        </CardActions>
+      )}
+      {path === "/trash" && (
+        <CardActions>
+          <Button size="small" onClick={() => unarchiveNote(note)}>
+            <DeleteForeverOutlined />
+          </Button>
+          <Button size="small" onClick={() => addToTrash(note)}>
+            <RestoreFromTrashOutlined />
+          </Button>
+        </CardActions>
+      )}
     </StyledCard>
   );
 };
 
 export default Note;
+

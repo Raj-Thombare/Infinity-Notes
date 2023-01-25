@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 import DataContext from "../context/data-context";
 import NotesList from "../components/Notes/NotesList";
@@ -9,8 +10,10 @@ let trashNotes;
 const Trash = () => {
   const { trash } = useContext(DataContext);
 
+  const location = useLocation();
+
   if (trash?.length > 0) {
-    trashNotes = <NotesList notes={trash} />;
+    trashNotes = <NotesList notes={trash} path={location.pathname} />;
   }
 
   if (trash?.length === 0) {

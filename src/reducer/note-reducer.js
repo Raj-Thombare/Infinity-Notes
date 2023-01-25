@@ -22,11 +22,15 @@ const NotesReducer = (state, action) => {
         ...state,
         trash: [...state.trash, action.payload],
       };
-    case "UNARCHIVE":
+    case "UNARCHIVE_NOTE":
       return {
         ...state,
-        notes: [...state.notes, action.payload],
         archives: action.payload,
+      };
+    case "RESTORE_NOTE":
+      return {
+        ...state,
+        trash: action.payload,
       };
     default:
       return state;
@@ -34,20 +38,3 @@ const NotesReducer = (state, action) => {
 };
 
 export default NotesReducer;
-// case "MOVE_TO_ARCHIVE":
-//       return {
-//         ...state,
-//         user: action.payload,
-//         loading: false,
-//       };
-//     case "MOVE_TO_TRASH":
-//       return {
-//         ...state,
-//         repos: action.payload,
-//         loading: false,
-//       };
-//     case "DELETE_NOTE":
-//       return {
-//         ...state,
-//         loading: true,
-//       };

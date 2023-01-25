@@ -11,7 +11,7 @@ const Archive = () => {
   const { archives } = useContext(DataContext);
 
   const location = useLocation();
-  console.log(location);
+
   if (archives?.length > 0) {
     archivedNotes = <NotesList notes={archives} path={location.pathname} />;
   }
