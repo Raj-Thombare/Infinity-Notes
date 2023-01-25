@@ -29,8 +29,14 @@ const StyledCard = styled(Card)`
 `;
 
 const Note = ({ note, path }) => {
-  const { addToArchive, addToTrash, unarchiveNote, restoreNote } =
-    useContext(DataContext);
+  const {
+    addToArchive,
+    addToTrash,
+    archiveToTrash,
+    unarchiveNote,
+    restoreNote,
+    deleteNote,
+  } = useContext(DataContext);
   return (
     <StyledCard>
       <CardContent>
@@ -58,14 +64,14 @@ const Note = ({ note, path }) => {
           <Button size="small" onClick={() => unarchiveNote(note)}>
             <UnarchiveOutlined />
           </Button>
-          <Button size="small" onClick={() => addToTrash(note)}>
+          <Button size="small" onClick={() => archiveToTrash(note)}>
             <DeleteOutlineOutlined />
           </Button>
         </CardActions>
       )}
       {path === "/trash" && (
         <CardActions>
-          <Button size="small" onClick={() => unarchiveNote(note)}>
+          <Button size="small" onClick={() => deleteNote(note)}>
             <DeleteForeverOutlined />
           </Button>
           <Button size="small" onClick={() => restoreNote(note)}>
