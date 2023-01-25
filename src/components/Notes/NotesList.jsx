@@ -1,7 +1,7 @@
 import Note from "./Note";
 import { Grid } from "@mui/material";
 
-const NotesList = ({ notes }) => {
+const NotesList = ({ notes, path }) => {
   return (
     <div
       style={{
@@ -15,7 +15,7 @@ const NotesList = ({ notes }) => {
         {notes.map((note) => {
           return (
             <Grid item key={note.id}>
-              <Note note={note} />
+              <Note note={note} path={path} />
             </Grid>
           );
         })}

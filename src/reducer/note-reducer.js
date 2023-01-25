@@ -1,5 +1,4 @@
 const NotesReducer = (state, action) => {
-  // console.log(state.notes);
   switch (action.type) {
     case "ADD_NOTE":
       return {
@@ -17,6 +16,17 @@ const NotesReducer = (state, action) => {
       return {
         ...state,
         archives: [...state.archives, action.payload],
+      };
+    case "ADD_TO_TRASH":
+      return {
+        ...state,
+        trash: [...state.trash, action.payload],
+      };
+    case "UNARCHIVE":
+      return {
+        ...state,
+        notes: [...state.notes, action.payload],
+        archives: action.payload,
       };
     default:
       return state;

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 import DataContext from "../context/data-context";
 import NotesList from "../components/Notes/NotesList";
@@ -9,8 +10,10 @@ let archivedNotes;
 const Archive = () => {
   const { archives } = useContext(DataContext);
 
+  const location = useLocation();
+  console.log(location);
   if (archives?.length > 0) {
-    archivedNotes = <NotesList notes={archives} />;
+    archivedNotes = <NotesList notes={archives} path={location.pathname} />;
   }
 
   if (archives?.length === 0) {

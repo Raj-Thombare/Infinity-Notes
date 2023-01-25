@@ -6,7 +6,11 @@ import {
   Button,
   Typography,
 } from "@mui/material";
-import { ArchiveOutlined, DeleteOutlineOutlined } from "@mui/icons-material";
+import {
+  ArchiveOutlined,
+  DeleteOutlineOutlined,
+  UnarchiveOutlined,
+} from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 import DataContext from "../../context/data-context";
 
@@ -22,8 +26,9 @@ const StyledCard = styled(Card)`
   align-items: center;
 `;
 
-const Note = ({ note }) => {
-  const { addToArchive } = useContext(DataContext);
+const Note = ({ note, path }) => {
+  const { addToArchive, addToTrash, removeFromArchive } =
+    useContext(DataContext);
   return (
     <StyledCard>
       <CardContent>
@@ -37,10 +42,16 @@ const Note = ({ note }) => {
         <Typography variant="body2">{note.text}</Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => addToArchive(note)}>
-          <ArchiveOutlined />
-        </Button>
-        <Button size="small">
+        {path === "/archive" ? (
+          <Button size="small" onClick={() => removeFromArchive(note)}>
+            <UnarchiveOutlined />
+          </Button>
+        ) : (
+          <Button size="small" onClick={() => addToArchive(note)}>
+            <ArchiveOutlined />
+          </Button>
+        )}
+        <Button size="small" onClick={() => addToTrash(note)}>
           <DeleteOutlineOutlined />
         </Button>
       </CardActions>

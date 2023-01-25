@@ -10,8 +10,9 @@ const defaultNotesState = {
   archives: [],
   trash: [],
   addToNotes: (note) => {},
-  addToArchive: (id) => {},
-  addToTrash: () => {},
+  addToArchive: (note) => {},
+  addToTrash: (note) => {},
+  unArchive: () => {},
 };
 
 const DataContext = createContext(defaultNotesState);
@@ -24,14 +25,28 @@ export const DataContextProvider = ({ children }) => {
   };
 
   const addToArchiveHandler = (note) => {
-    const newNotes = state.notes.filter(
+    const filteredNotes = state.notes.filter(
       (existingNote) => existingNote.id !== note.id
     );
-    dispatch({ type: "SET_NOTES", payload: newNotes });
+    dispatch({ type: "SET_NOTES", payload: filteredNotes });
     dispatch({ type: "ADD_TO_ARCHIVE", payload: note });
   };
 
-  const addToTrashHandler = () => {};
+  const unArchiveHandler = (note) => {
+    const filteredNotes = state.notes.filter(
+      (existingNote) => existingNote.id !== note.id
+    );
+    dispatch({ type: "SET_NOTES", payload: filteredNotes });
+    dispatch({ type: "UNARCHIVE", payload: note });
+  };
+
+  const addToTrashHandler = (note) => {
+    const filteredNotes = state.notes.filter(
+      (existingNote) => existingNote.id !== note.id
+    );
+    dispatch({ type: "SET_NOTES", payload: filteredNotes });
+    dispatch({ type: "ADD_TO_TRASH", payload: note });
+  };
 
   const dataContextValue = {
     notes: state.notes,
@@ -40,6 +55,7 @@ export const DataContextProvider = ({ children }) => {
     addToNotes: addToNotesHandler,
     addToArchive: addToArchiveHandler,
     addToTrash: addToTrashHandler,
+    unArchive: unArchiveHandler,
   };
 
   return (
