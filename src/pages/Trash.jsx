@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { Box, Button } from "@mui/material";
-import DataContext from "../contexts/notes-context";
+import TrashContext from "../contexts/trash-context";
 import NotesList from "../components/Notes/NotesList";
 import EmptyNotes from "../components/UI/EmptyList";
 
 let trashNotes;
 
 const Trash = () => {
-  const { trash, emptyTrash } = useContext(DataContext);
+  const { trash, emptyTrash } = useContext(TrashContext);
 
   const location = useLocation();
 

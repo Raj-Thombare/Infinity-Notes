@@ -1,17 +1,5 @@
-const NotesReducer = (state, action) => {
+const TrashReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_NOTE":
-      return {
-        ...state,
-        notes: [...state.notes, action.payload],
-      };
-
-    case "SET_NOTES":
-      return {
-        ...state,
-        notes: action.payload,
-      };
-
     case "ADD_TO_TRASH":
       return {
         ...state,
@@ -38,4 +26,4 @@ const NotesReducer = (state, action) => {
   }
 };
 
-export default NotesReducer;
+export default TrashReducer;
