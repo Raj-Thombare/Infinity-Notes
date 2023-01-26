@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 import DataContext from "../context/data-context";
 import NotesList from "../components/Notes/NotesList";
-import EmptyTrash from "../components/UI/EmptyTrash";
+import EmptyNotes from "../components/UI/EmptyList";
 
 let trashNotes;
 
@@ -17,7 +17,7 @@ const Trash = () => {
   }
 
   if (trash?.length === 0) {
-    trashNotes = <EmptyTrash />;
+    trashNotes = <EmptyNotes path={location.pathname} />;
   }
 
   return (

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 import DataContext from "../context/data-context";
 import NotesList from "../components/Notes/NotesList";
-import EmptyArchives from "../components/UI/EmptyArchives";
+import EmptyNotes from "../components/UI/EmptyList";
 
 let archivedNotes;
 
@@ -17,7 +17,7 @@ const Archive = () => {
   }
 
   if (archives?.length === 0) {
-    archivedNotes = <EmptyArchives />;
+    archivedNotes = <EmptyNotes path={location.pathname} />;
   }
 
   return (
