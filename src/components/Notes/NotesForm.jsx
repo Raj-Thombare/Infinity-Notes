@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
 import { ClickAwayListener } from "@mui/material";
 import { v4 as uuid } from "uuid";
-import DataContext from "../../context/data-context";
+import DataContext from "../../contexts/notes-context";
 
 const Container = styled(Box)`
   display: flex;

@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import NotesForm from "../components/Notes/NotesForm";
 import NotesList from "../components/Notes/NotesList";
 import EmptyNotes from "../components/UI/EmptyList";
-import DataContext from "../context/data-context";
+import DataContext from "../contexts/notes-context";
 
 const Home = () => {
   const { notes } = useContext(DataContext);

@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
-import DataContext from "../context/data-context";
+import ArchivesContext from "../contexts/archives-context";
 import NotesList from "../components/Notes/NotesList";
 import EmptyNotes from "../components/UI/EmptyList";
 
 let archivedNotes;
 
 const Archive = () => {
-  const { archives } = useContext(DataContext);
+  const { archives } = useContext(ArchivesContext);
 
   const location = useLocation();
 

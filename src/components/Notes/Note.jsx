@@ -14,7 +14,8 @@ import {
   RestoreFromTrashOutlined,
 } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
-import DataContext from "../../context/data-context";
+import NotesContext from "../../contexts/notes-context";
+import ArchivesContext from "../../contexts/archives-context";
 
 const StyledCard = styled(Card)`
   width: 240px;
@@ -29,14 +30,11 @@ const StyledCard = styled(Card)`
 `;
 
 const Note = ({ note, path }) => {
-  const {
-    addToArchive,
-    addToTrash,
-    archiveToTrash,
-    unarchiveNote,
-    restoreNote,
-    deleteNote,
-  } = useContext(DataContext);
+  const { addToTrash, restoreNote, deleteNote } = useContext(NotesContext);
+
+  const { addToArchive, archiveToTrash, unarchiveNote } =
+    useContext(ArchivesContext);
+
   return (
     <StyledCard>
       <CardContent>

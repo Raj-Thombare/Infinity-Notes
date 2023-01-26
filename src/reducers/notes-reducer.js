@@ -27,16 +27,7 @@ const NotesReducer = (state, action) => {
         ...state,
         trash: [...state.trash, action.payload],
       };
-    case "ARCHIVE_TO_TRASH":
-      return {
-        ...state,
-        trash: [...state.trash, action.payload],
-      };
-    case "UNARCHIVE_NOTE":
-      return {
-        ...state,
-        archives: action.payload,
-      };
+
     case "RESTORE_NOTE":
       return {
         ...state,

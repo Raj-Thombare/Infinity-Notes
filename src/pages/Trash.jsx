@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { Box, Button } from "@mui/material";
-import DataContext from "../context/data-context";
+import DataContext from "../contexts/notes-context";
 import NotesList from "../components/Notes/NotesList";
 import EmptyNotes from "../components/UI/EmptyList";
 
