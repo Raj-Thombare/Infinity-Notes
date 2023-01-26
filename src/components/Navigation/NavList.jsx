@@ -42,9 +42,9 @@ const NavList = ({ open }) => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
                 borderRadius: "0px 25px 25px 0px",
-                backgroundColor: pathname === list.route && "#4fbaf5",
+                backgroundColor: pathname === list.route && "#c5eaff",
                 "&:hover": {
-                  backgroundColor: pathname === list.route && "#4fbaf5",
+                  backgroundColor: pathname === list.route && "#c5eaff",
                 },
               }}
             >

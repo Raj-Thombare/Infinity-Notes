@@ -47,6 +47,11 @@ const NotesReducer = (state, action) => {
         ...state,
         trash: action.payload,
       };
+    case "EMPTY_TRASH":
+      return {
+        ...state,
+        trash: action.payload,
+      };
     default:
       return state;
   }
