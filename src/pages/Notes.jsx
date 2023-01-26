@@ -12,22 +12,21 @@ const Home = () => {
   const location = useLocation();
 
   return (
-    <Box sx={{ display: "flex", width: "100%" }}>
-      <Box sx={{ p: 3, width: "100%" }}>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <NotesForm />
-          {notes?.length > 0 ? (
-            <NotesList notes={notes} path={location.pathname} />
-          ) : (
-            <EmptyNotes />
-          )}
-        </Box>
+    <Box sx={{ display: "flex", marginLeft: "260px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <NotesForm />
+        {notes?.length > 0 ? (
+          <NotesList notes={notes} path={location.pathname} />
+        ) : (
+          <EmptyNotes />
+        )}
       </Box>
     </Box>
   );

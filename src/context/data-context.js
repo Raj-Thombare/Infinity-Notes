@@ -6,6 +6,7 @@ const defaultNotesState = {
     { id: 1, title: "Raj Thombare", text: "loremipsum" },
     { id: 2, title: "Rakaa", text: "loremipsum" },
     { id: 3, title: "Ben Stokes", text: "loremipsum" },
+    { id: 3, title: "Tulsidas Khan", text: "Toh mai kya karu? nahau!" },
   ],
   archives: [],
   trash: [],

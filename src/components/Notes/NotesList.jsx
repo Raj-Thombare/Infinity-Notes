@@ -7,8 +7,9 @@ const NotesList = ({ notes, path }) => {
       style={{
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center",
-        marginTop: "20px",
+        justifyContent: "flex-start",
+        width: "100%",
+        padding: "10px 20px",
       }}
     >
       <Grid container>
