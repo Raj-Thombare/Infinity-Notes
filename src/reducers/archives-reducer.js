@@ -12,11 +12,6 @@ const ArchivesReducer = (state, action) => {
         archives: [...state.archives, action.payload],
       };
 
-    case "ARCHIVE_TO_TRASH":
-      return {
-        ...state,
-        trash: [...state.trash, action.payload],
-      };
     case "UNARCHIVE_NOTE":
       return {
         ...state,

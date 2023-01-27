@@ -3,10 +3,26 @@ import NotesReducer from "../reducers/notes-reducer";
 
 const defaultNotesState = {
   notes: [
-    { id: 1, title: "Raj Thombare", text: "loremipsum" },
-    { id: 2, title: "Rakaa", text: "loremipsum" },
-    { id: 3, title: "Ben Stokes", text: "loremipsum" },
-    { id: 4, title: "Tulsidas Khan", text: "Toh mai kya karu? nahau!" },
+    {
+      id: 1,
+      title: "Raj Thombare",
+      text: "loremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsum",
+    },
+    {
+      id: 2,
+      title: "Rakaa",
+      text: "loremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsum",
+    },
+    {
+      id: 3,
+      title: "Ben Stokes",
+      text: "loremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsumloremipsum",
+    },
+    {
+      id: 4,
+      title: "Tulsidas Khan",
+      text: "Toh mai kya karu? nahau!Toh mai kya karu? nahau!Toh mai kya karu? nahau!Toh mai kya karu? nahau!Toh mai kya karu?!",
+    },
   ],
   addToNotes: (note) => {},
   deleteNote: (note) => {},
@@ -35,6 +51,8 @@ export const NotesContextProvider = ({ children }) => {
     notes: notesState.notes,
     addToNotes: addToNotesHandler,
     deleteNote: deleteNoteHandler,
+    notesState,
+    dispatchNote,
   };
 
   return (
