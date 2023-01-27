@@ -23,6 +23,19 @@ const StyledCard = styled(Card)`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  transition-duration: 0.218s;
+  transition-property: background, border, opacity, box-shadow, transform;
+  transition-timing-function: ease-in;
+
+  &:hover {
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%),
+      0 1px 3px 1px rgb(60 64 67 / 15%);
+  }
+`;
+
+const CustomButton = styled(Button)`
+  min-width: 0px;
+  padding: 0px;
 `;
 
 const Note = ({ note, path }) => {
@@ -31,57 +44,73 @@ const Note = ({ note, path }) => {
 
   const { addToTrash, restoreNote, deleteNote } = useContext(TrashContext);
 
+  let cardActions;
+  if (path === "/") {
+    cardActions = (
+      <>
+        <CustomButton size="small" onClick={() => addToArchive(note)}>
+          <ArchiveOutlined />
+        </CustomButton>
+        <CustomButton size="small" onClick={() => addToTrash(note)}>
+          <DeleteOutlineOutlined />
+        </CustomButton>
+      </>
+    );
+  }
+
+  if (path === "/archive") {
+    cardActions = (
+      <>
+        <CustomButton size="small" onClick={() => unarchiveNote(note)}>
+          <UnarchiveOutlined />
+        </CustomButton>
+        <CustomButton size="small" onClick={() => archiveToTrash(note)}>
+          <DeleteOutlineOutlined />
+        </CustomButton>
+      </>
+    );
+  }
+
+  if (path === "/trash") {
+    cardActions = (
+      <>
+        <CustomButton size="small" onClick={() => deleteNote(note)}>
+          <DeleteForeverOutlined />
+        </CustomButton>
+        <CustomButton size="small" onClick={() => restoreNote(note)}>
+          <RestoreFromTrashOutlined />
+        </CustomButton>
+      </>
+    );
+  }
+
   return (
     <StyledCard>
-      <CardContent sx={{ padding: 0, width: "100%" }}>
+      <CardContent sx={{ padding: 0, width: "100%", marginBottom: "20px" }}>
         <Typography
-          sx={{ fontSize: 16, fontWeight: "bold" }}
-          color="text.secondary"
+          sx={{
+            fontSize: "1rem",
+            fontWeight: "500",
+            color: "black",
+            marginBottom: ".6rem",
+          }}
           gutterBottom
         >
           {note.title}
         </Typography>
-        <Typography variant="body2" sx={{ wordBreak: "break-word" }}>
+        <Typography
+          variant="body2"
+          sx={{
+            wordBreak: "break-word",
+            whiteSpace: "pre-wrap",
+            fontSize: "1rem",
+            fontWeight: "400",
+          }}
+        >
           {note.text}
         </Typography>
       </CardContent>
-      {path === "/" && (
-        <CardActionsWrapper
-          sx={{
-            padding: 0,
-            width: "100%",
-            marginTop: "20px",
-            justifyContent: "center",
-          }}
-        >
-          <Button size="small" onClick={() => addToArchive(note)}>
-            <ArchiveOutlined />
-          </Button>
-          <Button size="small" onClick={() => addToTrash(note)}>
-            <DeleteOutlineOutlined />
-          </Button>
-        </CardActionsWrapper>
-      )}
-      {path === "/archive" && (
-        <CardActionsWrapper>
-          <Button size="small" onClick={() => unarchiveNote(note)}>
-            <UnarchiveOutlined />
-          </Button>
-          <Button size="small" onClick={() => archiveToTrash(note)}>
-            <DeleteOutlineOutlined />
-          </Button>
-        </CardActionsWrapper>
-      )}
-      {path === "/trash" && (
-        <CardActionsWrapper>
-          <Button size="small" onClick={() => deleteNote(note)}>
-            <DeleteForeverOutlined />
-          </Button>
-          <Button size="small" onClick={() => restoreNote(note)}>
-            <RestoreFromTrashOutlined />
-          </Button>
-        </CardActionsWrapper>
-      )}
+      <CardActionsWrapper>{cardActions}</CardActionsWrapper>
     </StyledCard>
   );
 };
